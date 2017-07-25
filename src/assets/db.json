@@ -1,0 +1,10 @@
+{  
+   "rooms":[  
+      {  
+         "name":"string",
+         "people":"long",
+         "password":"string",
+         "points": ["long"]
+      }
+   ]
+}

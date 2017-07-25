@@ -1,0 +1,14 @@
+<h1 class="center">You shall not pass!</h1>
+
+<md-input-container class="full-width">
+  <input mdInput placeholder="Password" [(ngModel)]="password">
+</md-input-container>
+
+<div class="center">
+  <button md-icon-button (click)="check()">
+    <md-icon>check_circle</md-icon>
+  </button>
+  <button md-icon-button md-dialog-close>
+    <md-icon>cancel</md-icon>
+  </button>
+</div>

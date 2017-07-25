@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.full-width {
+    width: 100%;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.button-fixed {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}

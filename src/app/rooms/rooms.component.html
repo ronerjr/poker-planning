@@ -1,0 +1,11 @@
+<md-list>
+  <md-list-item *ngFor="let room of rooms">
+    <button md-icon-button (click)="onClickRoom(room)">
+      <md-icon>arrow_forward</md-icon>
+    </button> 
+    <p md-list-item>{{room.name}}</p>
+  </md-list-item>
+</md-list>
+<button md-fab class="button-fixed" (click)="openDialog()">
+  <md-icon>add</md-icon>
+</button>
