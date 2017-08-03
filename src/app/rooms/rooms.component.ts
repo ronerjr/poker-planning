@@ -26,7 +26,7 @@ export class RoomsComponent implements OnInit {
     const dialogRef = this.dialog.open(PwdRoomComponent, {
       data: room,
       height: '250px',
-      width: '400px',
+      width: '400px'
     });
   }
 
