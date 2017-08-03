@@ -22,7 +22,7 @@ export class RoomsComponent implements OnInit {
     this.service.getRooms().subscribe(res => this.rooms = res);
   }
 
-  onClickRoom(room) {
+  onClickRoom(room, mode) {
     const dialogRef = this.dialog.open(PwdRoomComponent, {
       data: room,
       height: '250px',
