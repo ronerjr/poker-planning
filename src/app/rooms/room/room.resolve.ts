@@ -16,9 +16,8 @@ export class RoomResolve implements Resolve<any> {
   ): Observable<any> | Promise<any> | any {
     const room = this.service.getRoom(route.params['key']);
     return new Promise((resolve, reject) => {
-      // must import 'rxjs/add/operator/first'; before using it here
       room.subscribe((response) => {
-        resolve(response)
+        resolve({room: response, mode: route.params['mode']});
       }, reject);
     });
   }

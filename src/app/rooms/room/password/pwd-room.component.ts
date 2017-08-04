@@ -19,8 +19,8 @@ export class PwdRoomComponent implements OnInit {
   }
 
   check() {
-    if (this.password === this.data.password.toString()) {
-      this.router.navigate([`rooms/${this.data['$key']}`]);
+    if (this.password === this.data.room.password.toString()) {
+      this.router.navigate([`rooms/${this.data.room['$key']}`, this.data.mode]);
       this.dialogRef.close();
     } else {
       this.snackBar.open('WRONG PASSWORD!!!', 'Try again...', {

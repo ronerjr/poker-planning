@@ -12,7 +12,7 @@ const routes: Routes = [
         redirectTo: 'rooms'
     },
     {
-        path: 'rooms/:key',
+        path: 'rooms/:key/:mode',
         component: RoomComponent,
         canActivate: [GuardService],
         resolve: {

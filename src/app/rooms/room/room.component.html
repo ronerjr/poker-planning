@@ -1,23 +1,34 @@
-<section *ngIf="!votation; else showPoints;">
+<div *ngIf="mode === 'display'">
+  <section *ngIf="!votation; else showPoints;">
+    <h1 class="full-width center">Send your votes!</h1>
+    <md-progress-bar color="primary" mode="indeterminate" class="full-width">
+    </md-progress-bar>
+  </section>
 
-  <h1 class="full-width center">Send your votes!</h1>
+  <ng-template #showPoints>
+    <div *ngFor="let key of votation.keys()">
+      <p>{{votation.get(key)}} member(s) voted {{key}} points</p>
+    </div>
+    <button md-raised-button color="primary" (click)="cleanRoom()">Clean votes</button>
+  </ng-template>
 
-  <md-progress-bar color="primary" mode="indeterminate" class="full-width">
-  </md-progress-bar>
-
-</section>
-
-<ng-template #showPoints>
-  <div *ngFor="let key of votation.keys()">
-    <p>{{votation.get(key)}} member(s) voted {{key}} points</p>
+  <div class="button-fixed">
+    <button md-fab (click)="exit()" mdTooltip="Exit from this room" mdTooltipPosition="above">
+      <md-icon>exit_to_app</md-icon>
+    </button>
+    <button md-fab (click)="close()" mdTooltip="Close/Remove this room" mdTooltipPosition="above">
+      <md-icon>close</md-icon>
+    </button>
   </div>
-</ng-template>
-
-<div class="button-fixed">
-  <button md-fab (click)="exit()" mdTooltip="Exit from this room" mdTooltipPosition="above">
-    <md-icon>exit_to_app</md-icon>
-  </button>
-  <button md-fab (click)="close()" mdTooltip="Close/Remove this room" mdTooltipPosition="above">
-    <md-icon>close</md-icon>
-  </button>
+</div>
+<div *ngIf="mode === 'team'" class="center">
+  <md-input-container>
+    <input mdInput placeholder="Write your points" [(ngModel)]="points" type="number">
+  </md-input-container>
+  <button md-raised-button color="primary" (click)="sendPoints()">Send</button>
+  <div class="button-fixed">
+    <button md-fab (click)="exit()" mdTooltip="Exit from this room" mdTooltipPosition="above">
+      <md-icon>exit_to_app</md-icon>
+    </button>
+  </div>
 </div>

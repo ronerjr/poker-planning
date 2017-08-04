@@ -25,4 +25,8 @@ export class RoomsService {
      this.db.object(`/rooms/${key}`).remove();
   }
 
+  updateRoom(room) {
+    this.db.object(`/rooms/${room.$key}`).update(room);
+  }
+
 }
