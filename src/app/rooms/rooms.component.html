@@ -1,10 +1,16 @@
-<md-list>
-  <md-list-item *ngFor="let room of rooms">
-    <button md-raised-button (click)="onClickRoom(room, 'team')" class="button-list" color="primary">Team</button>
-    <button md-raised-button (click)="onClickRoom(room, 'display')" class="button-list" color="primary">Display</button>
-    <p md-list-item>{{room.name}}</p>
+<md-list *ngFor="let room of rooms">
+  <md-list-item>
+    <button md-icon-button (click)="onClickRoom(room, 'team')" class="button-list" color="primary" mdTooltip="Team mode" mdTooltipPosition="below">
+      <md-icon>people</md-icon>
+    </button>
+    <button md-icon-button (click)="onClickRoom(room, 'display')" class="button-list" color="primary" mdTooltip="Display mode"
+      mdTooltipPosition="below">
+      <md-icon>desktop_windows</md-icon>
+    </button>
+    <p md-line>{{room.name}}</p>
   </md-list-item>
+  <md-divider></md-divider>
 </md-list>
-<button md-fab class="button-fixed" (click)="openDialog()">
+<button md-fab class="button-fixed" (click)="openDialog()" mdTooltip="Add new room" mdTooltipPosition="below">
   <md-icon>add</md-icon>
 </button>

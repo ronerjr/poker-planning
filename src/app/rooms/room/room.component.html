@@ -6,10 +6,13 @@
   </section>
 
   <ng-template #showPoints>
-    <div *ngFor="let key of votation.keys()">
-      <p>{{votation.get(key)}} member(s) voted {{key}} points</p>
+    <div class="center">
+      <p class="mat-display-1">Points obtained</p>
+      <div *ngFor="let key of votation.keys()" style="margin-bottom: 10px">
+        <p class="mat-body-1">{{votation.get(key)}} member(s) voted {{key}} points</p>
+      </div>
+      <button md-raised-button color="primary" (click)="cleanRoom()">Clean votes</button>
     </div>
-    <button md-raised-button color="primary" (click)="cleanRoom()">Clean votes</button>
   </ng-template>
 
   <div class="button-fixed">
