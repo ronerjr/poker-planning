@@ -1,0 +1,17 @@
+<div class="center">
+    <div class="login-box">
+        <h2 class="center">Sign in with your account</h2>
+
+        <md-input-container class="full-width">
+            <input mdInput placeholder="Email" [(ngModel)]="email" type="email">
+        </md-input-container>
+        <md-input-container class="full-width">
+            <input mdInput placeholder="Password" [(ngModel)]="password" type="password">
+        </md-input-container>
+
+        <div class="footer-buttons">
+            <button md-raised-button color="primary" (click)="login()">Login</button>
+            <button md-raised-button color="accent" (click)="register()">Register</button>
+        </div>
+    </div>
+</div>

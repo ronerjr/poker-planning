@@ -3,7 +3,6 @@ import { MD_DIALOG_DATA, MdSnackBar, MdDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-pwd-room',
   templateUrl: './pwd-room.component.html'
 })
 export class PwdRoomComponent implements OnInit {

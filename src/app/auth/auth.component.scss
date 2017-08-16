@@ -1,0 +1,19 @@
+.login-box {
+    display: flex;
+    height: 600px;
+    width: 500px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    & > button {
+        margin: 10px;
+        padding: 10px 90px;
+    }
+}
