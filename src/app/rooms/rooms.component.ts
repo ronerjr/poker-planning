@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
-import { MdDialogRef, MdDialog } from '@angular/material/';
+import { MdDialog } from '@angular/material/';
 
 import { RoomsService } from './rooms.service';
 import { RoomComponent } from './room/room.component';

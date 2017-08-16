@@ -3,46 +3,49 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
     authState: any;
 
-    constructor(private firebaseAuth: AngularFireAuth, private db: AngularFireDatabase) {
-        this.firebaseAuth.authState.subscribe((auth) => {
-            this.authState = auth;
+    constructor(private firebaseAuth: AngularFireAuth, private db: AngularFireDatabase, private router: Router) { }
+
+    /**
+   * Calls the AngularFire2 service to register a new user
+   * @param model
+   * @returns {firebase.Promise<void>}
+   */
+    registerUser(email, password) {
+        return this.firebaseAuth.auth.createUserWithEmailAndPassword(email, password);
+    }
+
+    /**
+     * Saves information to display to screen when user is logged in
+     * @param uid
+     * @param model
+     * @returns {firebase.Promise<void>}
+     */
+    saveUserInfoFromForm(uid, name, email) {
+        return this.db.object('registeredUsers/' + uid).set({
+            name: name,
+            email: email,
         });
     }
 
-    get authenticated(): boolean {
-        return this.authState !== null;
-    }
-
-    anonymousLogin() {
-        return this.firebaseAuth.auth.signInAnonymously()
-            .then((user) => {
-                this.authState = user;
-                this.updateUserData();
+    /**
+    * Logs the user in using their Email/Password combo
+    * @param email
+    * @param password
+    * @returns {firebase.Promise<FirebaseAuthState>}
+    */
+    loginWithEmail(email, password) {
+        return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password).then(
+            (success) => {
+                this.router.navigate(['/rooms']);
             })
-            .catch(error => console.log(error));
-    }
-
-    private updateUserData(): void {
-        // Writes user name and email to realtime db
-        // useful if your app displays information about users or for admin features
-
-        const path = `users/${this.currentUserId}`; // Endpoint on firebase
-        const data = {
-            email: this.authState.email,
-            name: this.authState.displayName
-        }
-
-        this.db.object(path).update(data)
-            .catch(error => console.log(error));
-
-    }
-
-    get currentUserId(): string {
-        return this.authenticated ? this.authState.uid : '';
+            .catch((err) => {
+                console.error(err);
+            });
     }
 }

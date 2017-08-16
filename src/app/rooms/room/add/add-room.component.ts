@@ -5,7 +5,6 @@ import { RoomsService } from './../../rooms.service';
 import { MdDialogRef, MdSnackBar } from '@angular/material';
 
 @Component({
-  selector: 'app-add-room',
   templateUrl: './add-room.component.html'
 })
 export class AddRoomComponent implements OnInit {

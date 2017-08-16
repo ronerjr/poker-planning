@@ -29,10 +29,12 @@ import { RoomComponent } from './rooms/room/room.component';
 import { AddRoomComponent } from './rooms/room/add/add-room.component';
 import { PwdRoomComponent } from './rooms/room/password/pwd-room.component';
 import { RoomResolve } from './rooms/room/room.resolve';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AuthComponent,
     RoomsComponent,
     RoomComponent,
     AddRoomComponent,
