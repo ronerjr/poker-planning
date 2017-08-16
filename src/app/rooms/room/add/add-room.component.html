@@ -1,20 +1,20 @@
 <form [formGroup]="addForm">
     <md-input-container class="full-width">
-        <input mdInput placeholder="Name" [(ngModel)]="room.name" formControlName="name">
+        <input mdInput placeholder="Name" [(ngModel)]="room['name']" formControlName="name">
         <md-error *ngIf="addForm.get('name').hasError('required')">
             The room must have a name
         </md-error>
     </md-input-container>
 
     <md-input-container class="full-width">
-        <input mdInput placeholder="Password" [(ngModel)]="room.password" formControlName="password">
+        <input mdInput placeholder="Password" [(ngModel)]="room['password']" formControlName="password">
         <md-error *ngIf="addForm.get('password').hasError('required')">
             You need to protect your room
         </md-error>
     </md-input-container>
 
     <md-input-container class="full-width">
-        <input mdInput placeholder="Number of members" type="number" [(ngModel)]="room.people" formControlName="people" min="0">
+        <input mdInput placeholder="Number of members" type="number" [(ngModel)]="room['people']" formControlName="people" min="0">
         <md-error *ngIf="addForm.get('password').hasError('required')">
             Number of participants
         </md-error>
