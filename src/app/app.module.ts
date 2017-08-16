@@ -30,6 +30,9 @@ import { AddRoomComponent } from './rooms/room/add/add-room.component';
 import { PwdRoomComponent } from './rooms/room/password/pwd-room.component';
 import { RoomResolve } from './rooms/room/room.resolve';
 import { AuthComponent } from './auth/auth.component';
+import * as firebase from 'firebase';
+
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -46,7 +49,7 @@ import { AuthComponent } from './auth/auth.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(environment.firebase, 'PokerPlanning'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     MdListModule,

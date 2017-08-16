@@ -26,7 +26,7 @@ const routes: Routes = [
         canActivate: [GuardService]
     },
     {
-        path: 'auth',
+        path: 'login',
         component: AuthComponent
     }
 ];

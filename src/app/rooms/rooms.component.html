@@ -1,4 +1,4 @@
-<md-list *ngFor="let room of rooms">
+<md-list *ngFor="let room of rooms | async">
   <md-list-item>
     <button md-icon-button (click)="onClickRoom(room, 'team')" class="button-list" color="primary" mdTooltip="Team mode" mdTooltipPosition="below">
       <md-icon>people</md-icon>
@@ -11,6 +11,11 @@
   </md-list-item>
   <md-divider></md-divider>
 </md-list>
-<button md-fab class="button-fixed" (click)="openDialog()" mdTooltip="Add new room" mdTooltipPosition="below">
-  <md-icon>add</md-icon>
-</button>
+<div class="button-fixed">
+  <button md-fab (click)="openDialog()" mdTooltip="Add new room" mdTooltipPosition="below">
+    <md-icon>add</md-icon>
+  </button>
+  <button md-fab (click)="logout()" mdTooltip="Exit" mdTooltipPosition="above">
+    <md-icon>exit_to_app</md-icon>
+  </button>
+</div>

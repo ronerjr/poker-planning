@@ -13,11 +13,11 @@ export class AuthComponent {
     constructor(private service: AuthService) { }
 
     login() {
-        this.service.loginWithEmail(this.email, this.password);
+        this.service.signinUser(this.email, this.password);
     }
 
     register() {
-        this.service.registerUser(this.email, this.password);
+        this.service.signupUser(this.email, this.password);
     }
 
 }
